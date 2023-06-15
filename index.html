@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z3GSVNGHVM"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-Z3GSVNGHVM');
+  </script>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rankings - Premier League</title>
+
+  <script type="text/javascript" src="https://d3js.org/d3.v7.min.js"></script>
+  <script type="text/javascript" src="javascript/dropdown.js"></script>
+  <script type="text/javascript" src="javascript/ranking.js"></script>
+  <script type="text/javascript" src="javascript/ranking_matches.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="css/dropdown.css">
+  <link rel="stylesheet" type="text/css" href="css/tooltip.css">
+  <link rel="stylesheet" type="text/css" href="css/common.css">
+  <link rel="stylesheet" type="text/css" href="css/ranking.css">
+  <link rel="stylesheet" type="text/css" href="css/ranking_matches.css">
+
+  <!-- Need this to add caret arrow icon on dropdown -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+  
+</head>
+<body>
+
+  <h1>Premier League Data Visualization</h1>
+  <div id="tooltip" class="tooltip hidden">
+      <p id="ttp_1" style="text-align:center;"></p>
+      <hr>
+      <p id="ttp_2" style="text-align:center;"></p>
+  </div>
+  
+  <div class="fg_container column_container" id="f1_container">
+      <div id="dropdown_container" class="column_container">
+        <div class="dropdown_title column" id="dropdown_season_title">Season:</div>
+        <div class="dropdown notouch column" id="dropdown_season">
+          <button onclick="showDrop('dropdown_content_season')" class="dropbtn" id="dropbtn_season">
+              2022-2023
+              <i class="fa fa-caret-down test"></i>
+          </button>
+          <ul id="dropdown_content_season" class="dropdown_content">
+            <li class="dropdown_content_li" id="dropdown_2022_2023">2022-2023</li>
+            <li class="dropdown_content_li" id="dropdown_2021_2022">2021-2022</li>
+            <li class="dropdown_content_li" id="dropdown_2020_2021">2020-2021</li>
+            <li class="dropdown_content_li" id="dropdown_2019_2020">2019-2020</li>
+            <li class="dropdown_content_li" id="dropdown_2018_2019">2018-2019</li>
+            <li class="dropdown_content_li" id="dropdown_2017_2018">2017-2018</li>
+          </ul>
+        </div>
+      </div>
+      <div class="column f1_left" id="ranking_container"></div>
+      <div class="column f1_right" id="matches_container"></div>
+  </div>
+
+  <script>
+    makeMatchesList();
+    makeRanking();
+    AddDropdownClickEvent();
+  </script>
+
+</body>
+</html>
